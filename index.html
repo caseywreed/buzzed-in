@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+<head>
+    <title>Buzzed In!</title>
+    <link href="https://fonts.googleapis.com/css?family=Play:400,700|Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body ng-controller='questionCtrl'>
+
+    <div class='container'>
+        <div class="titleWrapper">
+            <h3 class="titleHeader">BUZZED IN!</h3>
+        </div>
+        <div class='row' ng-init="init()">
+
+            <!-- Question Field -->
+            <div class='col-md-10'>
+                <h4 class="jScore red bold" ng-show="userScore < 0">Current Score: ${{userScore}}</h4>
+                <h4 class="jScore green bold" ng-show="userScore >= 0">Current Score: ${{userScore}}</h4>
+                <p class="jValue">The category is <strong>{{questionDisplay.category.title}}</strong> for <span class="green"><strong>${{questionDisplay.value}}</span></strong></p>
+                <p class="jQuestion"><strong>Question:</strong> {{questionDisplay.question}}</p>
+                <p class="jAnswer" ng-show="answerFlag"><strong>Answer:</strong> {{questionDisplay.answer}}</p>
+            </div>
+
+            <!-- Submit Fields -->
+            <div class='col-md-10'>
+                <button type="button" class="btn btn-primary" ng-click="submitAnswer(questionDisplay)">Submit</button>
+                <input id="answerInput" ng-model="userAnswer" type="text">
+                <p class="invalidQuestionSentence">Is this question impossible to answer due to missing information? <a ng-click="submitInvalid(questionDisplay.id)"><span class="cursorPointer">Click here</span></a></p>
+
+                <!-- ALERTS -->
+                <p ng-show="answerAlert" class="alert alert-danger red bold">Please enter an answer</p>
+                <div class="alert alert-success" ng-show="previousAnswerFlag == true">
+                    <strong>Correct!</strong> The answer was <span class="prevAnswerStyles">{{previousAnswer}}</span>
+                </div>
+                <div class="alert alert-danger" ng-show="previousAnswerFlag == false">
+                    <strong>Wrong...</strong> The answer was <span class="prevAnswerStyles">{{previousAnswer}}</span>
+                </div>
+            </div>
+
+            <div class='col-md-10 center'>
+                <img class="cursorPointer" src="../images/githubicon.png" ng-click="githubLink()" /> <img class="cursorPointer" src="../images/twittericon.png" ng-click="twitterLink()"></a>
+            </div>
+
+        </div>
+    </div>
+
+    <script type="text/javascript" src="lib/jquery/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="app/app.js"></script>
+    <script type="text/javascript" src="app/questionCtrl.js"></script>
+    <script type="text/javascript" src="app/questionFactory.js"></script>
+</body>
+</html>

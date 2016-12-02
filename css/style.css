@@ -1,0 +1,57 @@
+body {
+    width: 320px;
+    font-family: 'Play', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.titleHeader {
+    color: yellow;
+    text-align: center;
+    font-family: 'Press Start 2P', san-serif;
+}
+
+.titleWrapper {
+    background-color: blue;
+    border: 5px solid black;
+    padding-bottom: 10px;
+}
+
+.invalidQuestionSentence {
+    font-size: .75em;
+    font-style: italic;
+}
+
+.personal {
+    font-size: .75em;
+    font-style: italic;
+}
+
+.cursorPointer {
+    cursor: pointer;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+
+.prevAnswerStyles {
+    font-style: italic;
+    font-weight: bold;
+}
+
+// font-family: 'Press Start 2P', cursive;
+// font-family: 'Play', sans-serif;
+
