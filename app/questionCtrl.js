@@ -23,7 +23,7 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
         }
         $scope.previousAnswer = question.answer;
         let x = question.answer.toUpperCase();
-        let check = x.includes($scope.userAnswer.toUpperCase())
+        let check = x.includes($scope.userAnswer.toUpperCase());
         if (check === true) {
             $scope.correctAnswer(question)
         } else {
@@ -90,6 +90,7 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
     $scope.answerFormat = function (string) {
         string.replace("<i>", "")
         string.replace("</i>", "")
+        return string
     }
 
     $scope.twitterLink = function () {
