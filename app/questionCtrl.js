@@ -23,7 +23,7 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
         }
         $scope.previousAnswer = question.answer;
         let x = question.answer.toUpperCase();
-        let check = x.includes($scope.userAnswer.toUpperCase())
+        let check = x.includes($scope.userAnswer.toUpperCase());
         if (check === true) {
             $scope.correctAnswer(question)
         } else {
@@ -63,6 +63,7 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
             $scope.questionDisplay = []
             $scope.questionDisplay = data[0]
             $scope.questionDisplay.category.title = $scope.titleFormat($scope.questionDisplay.category.title)
+            $scope.questionDisplay.answer = $scope.answerFormat($scope.questionDisplay.answer)
             // If the question doesn't exist on the response, get another question
             // If the question is marked as INVALID 2 or more times, get another question
             if ($scope.questionDisplay.question == "" || $scope.questionDisplay.invalid >= 2) {
@@ -71,7 +72,7 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
         })
     }
 
-    $scope.titleFormat = (string) => {
+    $scope.titleFormat = function (string) {
         let str = string.toLowerCase().split(' ');
         for(var i = 0; i < str.length; i++){
             str[i] = str[i].split('');
@@ -81,10 +82,15 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
             } else {
                 str[i][1] = str[i][1].toUpperCase();
             }
-
             str[i] = str[i].join('');
         }
         return str.join(' ');
+    }
+
+    $scope.answerFormat = function (string) {
+        string.replace("<i>", "")
+        string.replace("</i>", "")
+        return string
     }
 
     $scope.twitterLink = function () {
