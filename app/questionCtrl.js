@@ -1,4 +1,4 @@
- 'use strict';
+'use strict';
 
 angular.module('app').controller('questionCtrl', function ($scope, QuestionFactory) {
 
