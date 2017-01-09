@@ -3,7 +3,7 @@
   "name"            : "Buzzed In!",
   "description"     : "Random Jeopardy questions for whenever you feel bored",
   "short_name"      : "Buzzed In!",
-  "version"         : "0.1",
+  "version"         : "0.2",
   "browser_action": {
     "default_popup": "index.html",
     "default_icon" : "images/logo.png"
