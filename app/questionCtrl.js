@@ -88,9 +88,8 @@ angular.module('app').controller('questionCtrl', function ($scope, QuestionFacto
     }
 
     $scope.answerFormat = function (string) {
-        string.replace("<i>", "")
-        string.replace("</i>", "")
-        return string
+        let newString = string.replace(/<\/?[^>]+(>|$)/g, "")
+        return newString
     }
 
     $scope.twitterLink = function () {
